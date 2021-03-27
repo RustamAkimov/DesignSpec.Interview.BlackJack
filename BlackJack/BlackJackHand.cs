@@ -8,13 +8,16 @@ namespace BlackJack
 
     public class BlackJackHand : CardHand
     {
+        private const string BlackJackStr = "blackjack";
+        
         public BlackJackHand(IList<Card> initialCards) : base(initialCards)
         {
         }
 
-        public override string GetValue()
+        public int GetValueInt()
         {
             var aceNumber = 0;
+
             var totalValue = 0;
 
             foreach (var card in _cards)
@@ -41,20 +44,26 @@ namespace BlackJack
                     returnValue = extraValue + totalValue;
             }
 
-            return ShowValue(returnValue);
+            return returnValue;
+
+        }
+
+        public override string GetValue()
+        {
+            return ShowValue(GetValueInt());
         }
 
         private string ShowValue(int totalValue)
         {
             if (totalValue == 21)
-                return "blackjack";
+                return BlackJackStr;
             if (totalValue > 21)
                 return "over 21";
 
             return totalValue.ToString();
         }
 
-
+        
 
         private int[] GeneratePossibleAceValues(int aceNumber)
         {

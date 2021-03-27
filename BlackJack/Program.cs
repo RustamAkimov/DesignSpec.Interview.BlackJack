@@ -15,13 +15,17 @@ namespace BlackJack
             Console.WriteLine(initialCards.firstCard);
             Console.WriteLine(initialCards.secondCard);
 
-            Console.Write("More?(y/n)");
-            while (Console.ReadLine()?.ToLower()=="y")
+            if(game.CanHaveMore)
+                Console.Write("More?(y/n)");
+            
+            while (game.CanHaveMore && Console.ReadLine()?.ToLower() == "y")
             {
                 Console.WriteLine(game.More());
-                Console.Write("More? (y/n) ");
+
+                if (game.CanHaveMore)
+                    Console.Write("More? (y/n) ");
             }
-            
+
             Console.WriteLine("Result is: "+game.Finish());
             
         }

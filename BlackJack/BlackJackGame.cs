@@ -28,6 +28,11 @@ namespace BlackJack
             return card;
         }
 
+        public bool IsBlackJack => _hand.GetValueInt() == 21;
+        public bool IsOver21 => _hand.GetValueInt() > 21;
+
+        public bool CanHaveMore => !IsBlackJack && !IsOver21;
+
         public string Finish()
         {
             return _hand.GetValue();
