@@ -41,7 +41,7 @@ namespace BlackJack
             {
                 var candidateValue = extraValue + totalValue;
                 if (candidateValue <= 21 && candidateValue > returnValue)
-                    returnValue = extraValue + totalValue;
+                    returnValue = candidateValue;
             }
 
             return returnValue;
