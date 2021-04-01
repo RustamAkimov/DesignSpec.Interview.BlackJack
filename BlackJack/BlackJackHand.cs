@@ -63,8 +63,6 @@ namespace BlackJack
             return totalValue.ToString();
         }
 
-        
-
         private int[] GeneratePossibleAceValues(int aceNumber)
         {
             if (aceNumber==0)

@@ -12,12 +12,14 @@ namespace BlackJack
 
         private List<Card> _cardList;
 
-        public static CardDeck Generate52Deck()
+        public static CardDeck Generate52Deck(bool shuffle=true)
         {
             var deck = new CardDeck();
 
             deck.Init52Desk();
-            deck.Shuffle();
+            
+            if(shuffle)
+                deck.Shuffle();
             
             return deck;
         }
